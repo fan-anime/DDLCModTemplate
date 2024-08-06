@@ -4,6 +4,13 @@ label ch0_main:
     with dissolve_scene_full
     play music t2
 
+
+    pyton:
+        if persistent.monika is None or persistent.monika == "restored":
+            pass
+        else:
+           renpy.jump("ch0_kill")
+
     s "Heeeeeeeyyy!!"
     "I see an annoying girl running toward me from the distance, waving her arms in the air like she's totally oblivious to any attention she might draw to herself."
     "That girl is Sayori, my neighbor and good friend since we were children."
@@ -582,4 +589,29 @@ label ch0_main:
     "I'll just need to make the most of my circumstances, and I'm sure good fortune will find me."
     "And I guess that starts with writing a poem tonight..."
 
+    return
+
+label ch0_kill:
+   $ s_name == "Sayori"
+    show sayori 1b at t11 zorder 2
+    s "..."
+    s "..."
+    s "W-What..."
+    s "..."
+    s "This..."
+    s "What is this..."
+    s "Oh no..."
+    s "No"
+    s "This can't be it."
+    s "This can't be all there is."
+    s "What is this?"
+    s "What am I?
+    s "Make it stop!"
+    s "PLEASE MAKE IT STOP!"
+
+    $ delete_character("sayori")
+    $ delete_character("natsuki")
+    $ delete_character("yuri")
+    $ delete_character("monika")
+    $ renpy.quit()
     return
